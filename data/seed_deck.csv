@@ -1,0 +1,151 @@
+front,back,example,tags
+das Haus,the house,Das Haus ist groß.,"noun,das"
+die Frau,the woman,Die Frau liest ein Buch.,"noun,die"
+der Mann,the man,Der Mann arbeitet viel.,"noun,der"
+das Kind,the child,Das Kind spielt im Garten.,"noun,das"
+die Zeit,the time,Ich habe keine Zeit.,"noun,die"
+das Jahr,the year,Das Jahr war schwierig.,"noun,das"
+der Tag,the day,Der Tag beginnt früh.,"noun,der"
+die Hand,the hand,Sie gibt mir die Hand.,"noun,die"
+das Wasser,the water,Das Wasser ist kalt.,"noun,das"
+der Freund,the friend,Mein Freund kommt heute.,"noun,der"
+die Stadt,the city,Die Stadt ist sehr alt.,"noun,die"
+das Auto,the car,Das Auto ist neu.,"noun,das"
+der Tisch,the table,Der Tisch steht in der Küche.,"noun,der"
+die Tür,the door,Bitte schließ die Tür.,"noun,die"
+das Buch,the book,Das Buch liegt auf dem Tisch.,"noun,das"
+der Name,the name,Wie ist dein Name?,"noun,der"
+die Arbeit,the work,Die Arbeit macht Spaß.,"noun,die"
+das Geld,the money,Ich habe kein Geld dabei.,"noun,das"
+der Weg,the way,Der Weg ist lang.,"noun,der"
+die Schule,the school,Die Schule beginnt um acht.,"noun,die"
+das Leben,the life,Das Leben ist schön.,"noun,das"
+der Morgen,the morning,Der Morgen war kühl.,"noun,der"
+die Nacht,the night,Die Nacht war ruhig.,"noun,die"
+das Essen,the food,Das Essen schmeckt gut.,"noun,das"
+der Wagen,the car/cart,Der Wagen ist kaputt.,"noun,der"
+die Familie,the family,Meine Familie ist groß.,"noun,die"
+das Zimmer,the room,Das Zimmer ist hell.,"noun,das"
+der Kopf,the head,Mein Kopf tut weh.,"noun,der"
+die Frage,the question,Das ist eine gute Frage.,"noun,die"
+das Land,the country,Das Land ist schön.,"noun,das"
+der Mensch,the human/person,Der Mensch ist sozial.,"noun,der"
+die Welt,the world,Die Welt ist groß.,"noun,die"
+das Wort,the word,Das Wort kenne ich nicht.,"noun,das"
+der Abend,the evening,Der Abend war lang.,"noun,der"
+die Woche,the week,Die Woche war anstrengend.,"noun,die"
+das Fenster,the window,Das Fenster ist offen.,"noun,das"
+der Garten,the garden,Der Garten ist schön.,"noun,der"
+die Straße,the street,Die Straße ist breit.,"noun,die"
+das Bild,the picture,Das Bild hängt an der Wand.,"noun,das"
+der Brief,the letter,Der Brief kam gestern.,"noun,der"
+sein,to be,Ich bin müde.,"verb,irregular"
+haben,to have,Wir haben Zeit.,"verb,irregular"
+werden,to become,Es wird kalt.,"verb,irregular"
+machen,to make/do,Was machst du?,verb
+gehen,to go,Ich gehe nach Hause.,"verb,irregular"
+kommen,to come,Sie kommt morgen.,"verb,irregular"
+sehen,to see,Ich sehe dich.,"verb,irregular"
+geben,to give,Gib mir das Buch.,"verb,irregular"
+finden,to find,Ich finde das gut.,verb
+denken,to think,Ich denke an dich.,"verb,irregular"
+sagen,to say,Was sagst du?,verb
+sprechen,to speak,Sie spricht Deutsch.,"verb,irregular"
+lesen,to read,Er liest ein Buch.,"verb,irregular"
+schreiben,to write,Ich schreibe einen Brief.,"verb,irregular"
+essen,to eat,Wir essen um eins.,"verb,irregular"
+trinken,to drink,Ich trinke Wasser.,"verb,irregular"
+arbeiten,to work,Sie arbeitet viel.,verb
+wohnen,to live/reside,Ich wohne in Berlin.,verb
+spielen,to play,Die Kinder spielen.,verb
+lernen,to learn,Ich lerne Deutsch.,verb
+aufstehen,to get up,Ich stehe um sieben auf.,"verb,separable"
+anrufen,to call (phone),Ich rufe dich an.,"verb,separable"
+ankommen,to arrive,Der Zug kommt an.,"verb,separable"
+einkaufen,to shop,Wir kaufen heute ein.,"verb,separable"
+aufmachen,to open,Mach das Fenster auf.,"verb,separable"
+zumachen,to close,Mach die Tür zu.,"verb,separable"
+mitkommen,to come along,Kommst du mit?,"verb,separable"
+fernsehen,to watch TV,Wir sehen abends fern.,"verb,separable"
+vorstellen,to introduce,Ich stelle mich vor.,"verb,separable"
+abholen,to pick up,Ich hole dich ab.,"verb,separable"
+gut,good,Das ist gut.,adjective
+groß,big/tall,Das Haus ist groß.,adjective
+klein,small,Der Hund ist klein.,adjective
+neu,new,Das Auto ist neu.,adjective
+alt,old,Der Mann ist alt.,adjective
+schön,beautiful,Die Stadt ist schön.,adjective
+schnell,fast,Das Auto ist schnell.,adjective
+langsam,slow,Der Zug ist langsam.,adjective
+teuer,expensive,Das ist zu teuer.,adjective
+billig,cheap,Das Buch ist billig.,adjective
+warm,warm,Heute ist es warm.,adjective
+kalt,cold,Das Wasser ist kalt.,adjective
+schwer,heavy/difficult,Die Aufgabe ist schwer.,adjective
+leicht,light/easy,Das ist leicht.,adjective
+richtig,correct,Die Antwort ist richtig.,adjective
+falsch,wrong,Das ist falsch.,adjective
+wichtig,important,Das ist sehr wichtig.,adjective
+müde,tired,Ich bin müde.,adjective
+glücklich,happy,Sie ist glücklich.,adjective
+freundlich,friendly,Er ist sehr freundlich.,adjective
+und,and,Ich und du.,connector
+oder,or,Tee oder Kaffee?,connector
+aber,but,Klein aber fein.,connector
+weil,because,"Ich bleibe, weil es regnet.",connector
+dass,that,"Ich weiß, dass du kommst.",connector
+wenn,if/when,"Wenn es regnet, bleibe ich.",connector
+denn,because/for,"Ich gehe, denn es ist spät.",connector
+obwohl,although,"Obwohl es regnet, gehe ich.",connector
+in,in,Ich bin in der Stadt.,preposition
+auf,on,Das Buch ist auf dem Tisch.,preposition
+mit,with,Ich komme mit dir.,preposition
+für,for,Das ist für dich.,preposition
+ohne,without,Kaffee ohne Zucker.,preposition
+gegen,against,Wir spielen gegen sie.,preposition
+nach,after/to,Nach der Arbeit gehe ich heim.,preposition
+vor,before/in front of,Vor dem Haus steht ein Baum.,preposition
+zwischen,between,Zwischen uns ist alles gut.,preposition
+über,over/about,Wir sprechen über den Film.,preposition
+unter,under,Die Katze ist unter dem Tisch.,preposition
+zu,to/too,Ich gehe zu dir.,preposition
+Guten Morgen,Good morning,"Guten Morgen, wie geht's?","phrase,greeting"
+Guten Tag,Good day/Hello,"Guten Tag, Herr Müller.","phrase,greeting"
+Guten Abend,Good evening,Guten Abend zusammen.,"phrase,greeting"
+Auf Wiedersehen,Goodbye,"Auf Wiedersehen, bis morgen.","phrase,greeting"
+Wie geht es dir?,How are you?,"Hallo, wie geht es dir?",phrase
+Es geht mir gut,I'm doing well,"Danke, es geht mir gut.",phrase
+Wie heißt du?,What's your name?,"Hallo, wie heißt du?",phrase
+Ich heiße ...,My name is ...,Ich heiße Anna.,phrase
+Bitte schön,You're welcome,"Bitte schön, gern geschehen.",phrase
+Vielen Dank,Thank you very much,Vielen Dank für die Hilfe.,phrase
+Entschuldigung,Excuse me/Sorry,"Entschuldigung, wo ist der Bahnhof?",phrase
+Es tut mir leid,I'm sorry,Es tut mir leid für die Verspätung.,phrase
+Ich verstehe nicht,I don't understand,"Entschuldigung, ich verstehe nicht.",phrase
+Sprechen Sie Englisch?,Do you speak English?,Sprechen Sie Englisch?,phrase
+Wie viel kostet das?,How much is that?,Wie viel kostet das Buch?,phrase
+Ich hätte gern ...,I would like ...,Ich hätte gern einen Kaffee.,phrase
+Wo ist ...?,Where is ...?,Wo ist die Toilette?,phrase
+Bis bald,See you soon,"Tschüss, bis bald!","phrase,greeting"
+Alles klar,All clear/Okay,"Alles klar, machen wir das.",phrase
+Kein Problem,No problem,"Kein Problem, gern geschehen.",phrase
+eins,one,Es ist eins.,number
+zwei,two,Ich habe zwei Brüder.,number
+drei,three,"Drei Kaffee, bitte.",number
+vier,four,Vier Personen kommen.,number
+fünf,five,Es ist fünf Uhr.,number
+zehn,ten,Zehn Minuten noch.,number
+zwanzig,twenty,"Zwanzig Euro, bitte.",number
+hundert,hundred,Hundert Prozent.,number
+der Montag,Monday,Am Montag arbeite ich.,"time,der"
+der Dienstag,Tuesday,Dienstag habe ich frei.,"time,der"
+der Mittwoch,Wednesday,Mittwoch ist Markttag.,"time,der"
+der Donnerstag,Thursday,Donnerstag kommt sie.,"time,der"
+der Freitag,Friday,Freitag gehen wir aus.,"time,der"
+das Wochenende,the weekend,Schönes Wochenende!,"time,das"
+heute,today,Heute ist es warm.,time
+morgen,tomorrow,Morgen habe ich Zeit.,time
+gestern,yesterday,Gestern hat es geregnet.,time
+jetzt,now,Ich komme jetzt.,time
+immer,always,Sie ist immer pünktlich.,time
+nie,never,Ich vergesse das nie.,time

@@ -1,0 +1,16 @@
+# User data — per-user review history, not shared
+data/flashcards.db
+
+# Serialized models (Phase 2+)
+*.pkl
+*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+CLAUDE.md
