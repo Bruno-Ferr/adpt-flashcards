@@ -72,9 +72,16 @@ def pick_cards(
 ) -> list[sqlite3.Row]:
     """Choose up to ``n`` cards for this session.
 
-    Phase 1: random selection (no model yet). This is the single seam the
-    Phase 2 scheduler replaces — everything else in the loop stays the same.
+    Uses the trained model via scheduler.ranker when a model file exists.
+    Falls back to random selection otherwise — run `python main.py --train`
+    to build the model after accumulating review history.
     """
+    from flashcards.model.predictor import MODEL_PATH
+
+    if MODEL_PATH.exists():
+        from flashcards.scheduler.ranker import rank_cards
+        return rank_cards(conn, n)
+
     rng = rng or random.Random()
     cards = queries.get_all_cards(conn)
     rng.shuffle(cards)

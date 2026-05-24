@@ -39,10 +39,31 @@ def main(argv: list[str] | None = None) -> int:
         default=str(Path(__file__).resolve().parent / "data" / "seed_deck.csv"),
         help="path to the seed deck CSV (loaded only if the deck is empty)",
     )
+    parser.add_argument(
+        "--train",
+        action="store_true",
+        help="train the recall model on current review history, then exit",
+    )
     args = parser.parse_args(argv)
 
     console = Console()
     conn = schema.init_db()
+
+    if args.train:
+        from flashcards.model.trainer import train
+        console.print("[bold]Training recall model…[/]")
+        try:
+            val_acc, n_samples = train(conn)
+            console.print(
+                f"[green]Done.[/] Trained on [bold]{n_samples}[/] reviews · "
+                f"validation accuracy [bold]{val_acc:.1%}[/]"
+            )
+        except ValueError as exc:
+            console.print(f"[red]Cannot train:[/] {exc}")
+            return 1
+        finally:
+            conn.close()
+        return 0
 
     loaded = queries.load_seed_deck(conn, args.seed)
     if loaded:
