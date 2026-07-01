@@ -1,76 +1,65 @@
-# Adaptive Flashcards
+# Adaptive Flashcard System
 
-A spaced-repetition flashcard system that learns *your* forgetting patterns
-instead of using a fixed formula. German vocabulary, powered by your own
-review data.
+An adaptive spaced-repetition system for German vocabulary. Instead of reviewing cards on a fixed interval, the system predicts *when I'm likely to forget a specific card* and prioritizes reviews accordingly — treating scheduling as a learned problem rather than a fixed formula.
 
-## Status
+## Why this exists
 
-**Phase 1 complete** — data foundation and review loop.
+Most flashcard apps (Anki included) use fixed or lightly-tuned spaced-repetition formulas (SM-2 and variants). They work, but they treat every learner and every card the same way. I wanted to know: could a model trained on my *own* review history do better than a generic formula, and — more importantly — could I understand *why* it makes the calls it makes?
 
-- SQLite schema (`cards`, `reviews`, `model_runs`)
-- 150-card German seed deck (tagged by type, gender, separable verbs)
-- Interactive CLI review session that logs every answer as training data
+This project prioritizes the model and the reasoning behind it over the UI. There's no polished frontend here on purpose; the interesting part is the decision layer underneath.
 
-Phases 2–4 (model, incremental learning, dashboard) are not built yet.
+## How it works
 
-## Setup
+**1. Recall prediction**
+For each card, the system predicts the probability I'll recall it correctly on the next review, using features like:
+- Time since last review
+- Historical accuracy on that card
+- Card difficulty (estimated from aggregate performance)
+- Review streak / lapse count
 
-```bash
-pip install rich          # only runtime dependency so far
-# (pytest for tests, optional)
-```
+I started with **logistic regression** as a baseline — simple, interpretable, fast to iterate on. Once the feature set stabilized, I moved to **XGBoost**, which captured non-linear interactions the logistic model missed (e.g. the combined effect of a long gap *and* a recent lapse is worse than either alone) and meaningfully improved recall prediction accuracy.
 
-Python 3.11+.
+**2. Model interpretation**
+Moving to XGBoost trades off interpretability, so I used **SHAP** to keep the model's reasoning visible — confirming which features actually drive forgetting for a given card, and catching cases where the model was leaning on a feature I didn't expect (e.g. overweighting recency vs. lapse count). This mattered to me more than squeezing out extra accuracy: a scheduler I can't explain isn't one I trust with my own study time.
 
-## Run a session
+**3. Scheduling**
+Recall prediction alone isn't a scheduler — it just tells you what's at risk. On top of it, I built an **ε-greedy scheduler**: most of the time it prioritizes cards with the lowest predicted recall probability (exploit), but with probability ε it surfaces an under-reviewed or new card instead (explore), so the system doesn't get stuck only reinforcing cards it's already confident about.
 
-```bash
-python main.py                # 20 cards (default)
-python main.py --length 10    # shorter session
-```
+**4. Storage**
+Review history (timestamps, outcomes, per-card stats) is stored in **SQLite** — enough for a single-user system like this, and it keeps the whole thing runnable locally without extra infrastructure.
 
-On first run it creates `data/flashcards.db` and loads the seed deck. Later
-runs reuse the existing database and keep accumulating review history.
-
-Each card: read the German front, press Enter to reveal the answer, then rate
-your recall 1–4:
-
-| Key | Meaning | Logged result |
-|-----|---------|---------------|
-| 1   | again   | forgot (0)    |
-| 2   | hard    | recalled (1)  |
-| 3   | good    | recalled (1)  |
-| 4   | easy    | recalled (1)  |
-
-The time from card-shown to reveal is recorded as `response_time_ms` — a
-confidence signal for the model later. Press Ctrl-C to end early; whatever you
-reviewed is still saved.
-
-## Tests
-
-```bash
-PYTHONPATH=src python -m pytest tests/ -q
-```
-
-## Regenerate the seed deck
-
-```bash
-python scripts/gen_seed_deck.py
-```
-
-## Layout
+## Architecture
 
 ```
-src/flashcards/
-  db/        schema + queries (all SQL lives here)
-  cli/       session loop + post-session summary
-  features/  (Phase 2) feature engineering
-  model/     (Phase 2) train / predict / explain
-  scheduler/ (Phase 2) model-driven card ranking
-main.py      entry point
+[Review session] → [SQLite: log outcome]
+                          ↓
+              [Feature engineering: recency, accuracy, lapses, difficulty]
+                          ↓
+              [XGBoost: predict recall probability per card]
+                          ↓
+              [ε-greedy scheduler: pick next card(s)]
+                          ↓
+                  [Review session]
 ```
 
-The card-selection step (`pick_cards` in `cli/session.py`) is the single seam
-where the Phase 2 scheduler replaces random ordering — the review loop itself
-won't change.
+## Results
+
+*(Fill in with your actual numbers before publishing — e.g. logistic regression baseline accuracy/AUC vs. XGBoost, how much SHAP-driven feature pruning changed performance, or a before/after on retention rate over N weeks of real use.)*
+
+## What I'd do differently / next steps
+
+- [ ] Compare against a standard SM-2 baseline directly, not just logistic regression, to make the "does ML help here" case more rigorous
+- [ ] Try a bandit approach with a real reward signal (e.g. Thompson sampling) instead of fixed ε, and see if it adapts faster
+- [ ] Expand the feature set with semantic difficulty (e.g. word frequency, cognate similarity to Portuguese/English) rather than only behavioral features
+
+## Tech stack
+
+Python · scikit-learn · XGBoost · SHAP · SQLite
+
+## Running it locally
+
+*(Add setup instructions once the repo structure is finalized — dependencies, how to seed the DB, how to run a review session.)*
+
+---
+
+Part of a broader self-tracking/ML portfolio — see [Personal State & Activity Recommender](link) for a related project using real personal data to reduce decision paralysis.
